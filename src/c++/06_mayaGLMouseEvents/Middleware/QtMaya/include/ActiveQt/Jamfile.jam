@@ -1,0 +1,24 @@
+AWSubDir TOP platform ntamd64 Components ExternalLibraries Qt 4.8.6 include ActiveQt ;
+
+AWInstallHeader ActiveQt : install 3rd ;
+AWInstallHeader QAxAggregated : install 3rd ;
+AWInstallHeader QAxBase : install 3rd ;
+AWInstallHeader QAxBindable : install 3rd ;
+AWInstallHeader QAxClass : install 3rd ;
+AWInstallHeader QAxFactory : install 3rd ;
+AWInstallHeader QAxObject : install 3rd ;
+AWInstallHeader QAxScript : install 3rd ;
+AWInstallHeader QAxScriptEngine : install 3rd ;
+AWInstallHeader QAxScriptManager : install 3rd ;
+AWInstallHeader QAxSelect : install 3rd ;
+AWInstallHeader QAxWidget : install 3rd ;
+AWInstallHeader headers.pri : install 3rd ;
+AWInstallHeader qaxaggregated.h : install 3rd ;
+AWInstallHeader qaxbase.h : install 3rd ;
+AWInstallHeader qaxbindable.h : install 3rd ;
+AWInstallHeader qaxfactory.h : install 3rd ;
+AWInstallHeader qaxobject.h : install 3rd ;
+AWInstallHeader qaxscript.h : install 3rd ;
+AWInstallHeader qaxselect.h : install 3rd ;
+AWInstallHeader qaxtypes.h : install 3rd ;
+AWInstallHeader qaxwidget.h : install 3rd ;

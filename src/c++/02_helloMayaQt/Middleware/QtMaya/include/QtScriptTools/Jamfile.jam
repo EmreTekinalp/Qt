@@ -1,0 +1,6 @@
+AWSubDir TOP platform ntamd64 Components ExternalLibraries Qt 4.8.6 include QtScriptTools ;
+
+AWInstallHeader QScriptEngineDebugger : install 3rd ;
+AWInstallHeader QtScriptTools : install 3rd ;
+AWInstallHeader headers.pri : install 3rd ;
+AWInstallHeader qscriptenginedebugger.h : install 3rd ;
