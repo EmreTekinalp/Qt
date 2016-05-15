@@ -25,6 +25,12 @@ public slots:
 private:
     QPoint dragPosition;
     int* projectPath();
+    void setupProject(QString projectName);
+    QString appendPath(QString path1, QString path2);
+    void createFile(QString filePath);
     bool numCheck;
     QString resourcePath;
+    QStringList folders;
+    QString currentPath;
+    QDir path;
 };

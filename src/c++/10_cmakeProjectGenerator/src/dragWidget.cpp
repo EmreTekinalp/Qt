@@ -4,8 +4,8 @@ DragWidget::DragWidget(QWidget* parent):
     QWidget(parent)
 {
     setMouseTracking(true);
-    this->setStyleSheet("QWidget{background-color: DarkMagenta;}"
-                        "QWidget:hover{background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #dadbde, stop: 1 #f6f7fa);}");
+    this->setStyleSheet("QWidget{background-color: #500050;}"
+                        "QWidget:hover{border-top-width: 5px; border-top-color: #006464; border-top-style: solid;}");
 }
 
 void DragWidget::mousePressEvent(QMouseEvent *event)
