@@ -6,24 +6,23 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    numCheck = false;
 
     setAutoFillBackground(true);
     setWindowFlags(Qt::Widget | Qt::FramelessWindowHint);
     this->setStyleSheet("color:white; background-color:Dimgray;");
 
     resourcePath = QDir::currentPath().split("/build").join("") + "/resources/";
+    resourcePath = "E:/GitHub/Qt/src/c++/10_cmakeProjectGenerator/src/resources/";
+
     ui->projectName_led->setStyleSheet("color:black; background-color:white;");
     ui->projectPath_led->setStyleSheet("color:black; background-color:white;");
 
-    ui->importButton->setStyleSheet("QPushButton{background-color:Dimgray; min-width: 1em; padding: 6px; border: none;}"
-                                    "QPushButton:hover{background-color:#007474; border-top-width: 5px; border-top-color: #006464; border-top-style: solid;}"
-                                    "QPushButton:pressed{background-color:#006464;}");
-    ui->optionButton->setStyleSheet("QPushButton{background-color:Dimgray; min-width: 1em; padding: 6px; border: none;}"
-                                    "QPushButton:hover{background-color:#007474; border-top-width: 5px; border-top-color: #006464; border-top-style: solid;}"
-                                    "QPushButton:pressed{background-color:#006464;}");
-    ui->closeButton->setStyleSheet("QPushButton{background-color:Dimgray; min-width: 1em; padding: 6px; border: none;}"
-                                   "QPushButton:hover{background-color:#007474; border-top-width: 5px; border-top-color: #006464; border-top-style: solid;}"
-                                   "QPushButton:pressed{background-color:#006464;}");
+    // setupStyleSheets for the buttons
+    setupStyleSheet(ui->importButton);
+    setupStyleSheet(ui->optionButton);
+    setupStyleSheet(ui->closeButton);
+
     // pencil icon
     QAction *myPencilAction = ui->projectPath_led->addAction(QIcon(resourcePath + "pencil2.png"), QLineEdit::TrailingPosition);
     connect(myPencilAction, &QAction::triggered, this, &MainWindow::projectPath);
@@ -69,27 +68,29 @@ int* MainWindow::projectPath()
     return 0;
 }
 
-void MainWindow::on_numberButton_clicked()
+
+void MainWindow::on_importButton_clicked()
 {
     if (numCheck)
     {
-        ui->numberButton->setText("ABC");
+        ui->importButton->setText("I");
+        ui->importButton->setStyleSheet("QPushButton{background-color:Dimgray; min-width: 1em; padding: 6px; border: none;}"
+            "QPushButton:hover{background-color:#007474; border-top-width: 5px; border-top-color: #006464; border-top-style: solid;}"
+            "QPushButton:pressed{background-color:#FF8C00;}");
         numCheck = false;
     }
     else
     {
-        ui->numberButton->setText("123");
+        ui->importButton->setText("1\n2\n3");
+        ui->importButton->setStyleSheet("QPushButton{background-color:orange; min-width: 1em; padding: 6px; border: none;}"
+            "QPushButton:hover{background-color:#FFD700; border-top-width: 5px; border-top-color: #006464; border-top-style: solid;}"
+            "QPushButton:pressed{background-color:#FF8C00;}");
         numCheck = true;
     }
 }
 
 void MainWindow::on_generateButton_clicked()
 {
-    /*
-    AllocConsole();
-    freopen("CONOUT$", "w", stdout);
-    */
-
     int len = folders.length();
     char s[4];
 
@@ -99,7 +100,7 @@ void MainWindow::on_generateButton_clicked()
         {
             return;
         }
-        std::sprintf(s, "%02d_", len + 1);
+        sprintf(s, "%02d_", len + 1);
         QString projectName = QString(s) + ui->projectName_led->text();
         setupProject(projectName);
     }
@@ -134,4 +135,11 @@ void MainWindow::createFile(QString filePath)
     {
         cmakeFile.open(QIODevice::ReadWrite);
     }
+}
+
+void MainWindow::setupStyleSheet(QPushButton* button)
+{
+    button->setStyleSheet("QPushButton{background-color:Dimgray; min-width: 1em; padding: 6px; border: none;}"
+                          "QPushButton:hover{background-color:#007474; border-top-width: 5px; border-top-color: #006464; border-top-style: solid;}"
+                          "QPushButton:pressed{background-color:#FF8C00;}");
 }

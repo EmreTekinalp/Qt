@@ -5,6 +5,7 @@
 using std::cout;
 using std::endl;
 using std::rand;
+using std::sprintf;
 
 namespace Ui
 {
@@ -21,14 +22,18 @@ public:
     Ui::MainWindow *ui;
 public slots:
     void on_generateButton_clicked();
-    void on_numberButton_clicked();
+    void on_importButton_clicked();
 private:
-    QPoint dragPosition;
+    // private methods
     int* projectPath();
     void setupProject(QString projectName);
     QString appendPath(QString path1, QString path2);
     void createFile(QString filePath);
+    void setupStyleSheet(QPushButton* button);
+
+    // private variables
     bool numCheck;
+    QPoint dragPosition;
     QString resourcePath;
     QStringList folders;
     QString currentPath;

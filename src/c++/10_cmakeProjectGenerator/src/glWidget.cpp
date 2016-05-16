@@ -25,10 +25,11 @@ void CustomItem::paint(QPainter * painter, const QStyleOptionGraphicsItem * opti
 
     if (QStyle::State_MouseOver)
         // to be able to see cout results we have to allocate a console
+        /*
         AllocConsole();
         freopen("CONOUT$", "w", stdout);
         cout << option->state << endl;
-
+        */
     if (option->state & QStyle::State_MouseOver)
         fillColor = fillColor.light(125);
 

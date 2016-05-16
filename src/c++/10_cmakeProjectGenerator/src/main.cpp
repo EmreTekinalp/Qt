@@ -1,6 +1,6 @@
 #include <QtWidgets\qapplication.h>
-
 #include "projectGenerator.h"
+
 
 int main(int argc, char* argv[])
 {
