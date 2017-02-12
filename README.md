@@ -10,7 +10,7 @@ Hello world setup to run Qt 5.6 with CMake in VS15
 # 02_helloMayaQt
 Hello world setup to run Qt 4.8 inside Maya 2016
 A Middleware folder structure is implemented containing Maya compatible Qt version.
-[a link](https://github.com/user/EmreTekinalp/Qt/src/c++/02_hellpMayaQt/helloMayaQt.md)
+[a link](https://github.com/EmreTekinalp/Qt/src/c++/02_hellpMayaQt/helloMayaQt.md)
 
 # 03_mayaCustomUI
 Custom UI designed in QtDesigner to run Qt 4.8 inside Maya 2016
