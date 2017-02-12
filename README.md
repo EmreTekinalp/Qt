@@ -4,28 +4,29 @@ It contains different Widgets, Windows and Dialogs of simple examples so I can l
 Based on the concept of out-of-source-build-tree, I'm using CMake to generate a VisualStudio15 project.
 
 # 01_helloQt
-Hello world setup to run Qt 5.6 with CMake in VS15
-
+Hello world setup to run Qt 5.6 with CMake in VS15.
 [link](src/c++/01_helloQt/pages.md)
 
 # 02_helloMayaQt
 Hello world setup to run Qt 4.8 inside Maya 2016
 A Middleware folder structure is implemented containing Maya compatible Qt version.
-
-[link](src/c++/02_helloMayaQt/README.md)
+[link](src/c++/02_helloMayaQt/pages.md)
 
 # 03_mayaCustomUI
 Custom UI designed in QtDesigner to run Qt 4.8 inside Maya 2016
 A Middleware folder structure is implemented containing Maya compatible Qt version.
+[link](src/c++/03_mayaCustomUI/pages.md)
 
 # 04_helloQtOpenGL
 Hello world setup to run Qt 5.6 and OpenGL libraries.
 A Middleware folder structure is implemented containing freeglut, glew and glm includes and libraries.
+[link](src/c++/04_helloQtOpenGL/pages.md)
 
 # 05_helloMayaQtOpenGL
 Hello world setup to run Qt 4.8 and OpenGL in Maya.
 A Middleware folder structure is implemented containing freeglut, glew and glm includes and libraries
 as well as Maya compatible Qt version.
+[link](src/c++/05_helloMayaQtOpenGL/pages.md)
 
 # 06_mayaGLMouseEvents
 Qt window in Maya which provides a OpenGL generated triangle, which is dragable.
