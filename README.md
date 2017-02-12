@@ -5,7 +5,7 @@ Based on the concept of out-of-source-build-tree, I'm using CMake to generate a 
 
 # 01_helloQt
 Hello world setup to run Qt 5.6 with CMake in VS15
-[link](src/c++/01_helloQt/README.md)
+[link](src/c++/01_helloQt/pages.md)
 
 # 02_helloMayaQt
 Hello world setup to run Qt 4.8 inside Maya 2016
