@@ -5,12 +5,20 @@ Based on the concept of out-of-source-build-tree, I'm using CMake to generate a 
 
 # 01_helloQt
 Hello world setup to run Qt 5.6 with CMake in VS15
+<<<<<<< HEAD
 [a relative link](README.md)
+=======
+[a relative link](src/c%2B%2B/01_helloQt/helloQt.md)
+>>>>>>> refs/remotes/origin/gh-pages
 
 # 02_helloMayaQt
 Hello world setup to run Qt 4.8 inside Maya 2016
 A Middleware folder structure is implemented containing Maya compatible Qt version.
+<<<<<<< HEAD
 [a link](https://github.com/EmreTekinalp/Qt/src/README.md)
+=======
+[a link](https://github.com/EmreTekinalp/Qt/tree/gh-pages/src/c%2B%2B/02_helloMayaQt/helloMayaQt.md)
+>>>>>>> refs/remotes/origin/gh-pages
 
 # 03_mayaCustomUI
 Custom UI designed in QtDesigner to run Qt 4.8 inside Maya 2016
