@@ -1,39 +1,65 @@
-## Welcome to GitHub Pages
+# Qt library
 
-You can use the [editor on GitHub](https://github.com/EmreTekinalp/EmreTekinalp.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+This repository is supposed to be a personal Qt library written in C++.
+It contains different Widgets, Windows and Dialogs of simple examples so I can look it up in future.
+Based on the concept of out-of-source-build-tree, I'm using CMake to generate a VisualStudio15 project.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+### 01_helloQt
+Hello world setup to run Qt 5.6 with CMake in VS15.
+[link](src/c++/01_helloQt/pages.md)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### 02_helloMayaQt
+Hello world setup to run Qt 4.8 inside Maya 2016
+A Middleware folder structure is implemented containing Maya compatible Qt version.
+[link](src/c++/02_helloMayaQt/pages.md)
 
-```markdown
-Syntax highlighted code block
+### 03_mayaCustomUI
+Custom UI designed in QtDesigner to run Qt 4.8 inside Maya 2016
+A Middleware folder structure is implemented containing Maya compatible Qt version.
+[link](src/c++/03_mayaCustomUI/pages.md)
 
-# Header 1
-## Header 2
-### Header 3
+### 04_helloQtOpenGL
+Hello world setup to run Qt 5.6 and OpenGL libraries.
+A Middleware folder structure is implemented containing freeglut, glew and glm includes and libraries.
+[link](src/c++/04_helloQtOpenGL/pages.md)
 
-- Bulleted
-- List
+### 05_helloMayaQtOpenGL
+Hello world setup to run Qt 4.8 and OpenGL in Maya.
+A Middleware folder structure is implemented containing freeglut, glew and glm includes and libraries
+as well as Maya compatible Qt version.
+[link](src/c++/05_helloMayaQtOpenGL/pages.md)
 
-1. Numbered
-2. List
+### 06_mayaGLMouseEvents
+Qt window in Maya which provides a OpenGL generated triangle, which is dragable.
+Also two simple buttons to create a helixCurve, based from the maya devkit examples and a close function.
+[link](src/c++/06_mayaGLMouseEvents/pages.md)
 
-**Bold** and _Italic_ and `Code` text
+### 07_graphicsView
+Simple example showcasing a setup of the graphicsView in Qt 5.6.
+[link](src/c++/07_graphicsView/pages.md)
 
-[Link](url) and ![Image](src)
-```
+### 08_graphicsViewItem
+Simple example showcasing a setup of the graphicsViewItem in Qt 5.6.
+[link](src/c++/08_graphicsViewItem/pages.md)
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+### 09_nodeConnector
+Simple example showcasing beginning of a custom node editor, still WIP.
+[link](src/c++/09_nodeConnector/pages.md)
 
-### Jekyll Themes
+### 10_cmakeProjectGenerator
+Animated frameless window which is draggable and contains ListWidgets, Icons in QLineEdits
+and introducing QStyleSheet commands in a bigger scale.
+[link](src/c++/10_cmakeProjectGenerator/pages.md)
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/EmreTekinalp/EmreTekinalp.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+### 11_animatedWidgets
+Simple example introducing animated Widgets including mouseEvents when pushing Buttons.
+[link](src/c++/11_animatedWidgets/pages.md)
 
-### Support or Contact
+### 12_modelView
+Simple example introducing ModelView setup with comboBox and ListWidgetItem.
+[link](src/c++/12_modelView/pages.md)
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
-
-[Qt link](https://github.com/EmreTekinalp/Qt/README.md)
+### 13_labelButton
+Introducing customLabel Widgets behaving as buttons and triggering events.
+[link](src/c++/13_labelButton/pages.md)
