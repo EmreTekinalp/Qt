@@ -1,19 +1,45 @@
+"""
+@author: Emre Tekinalp
+@date: Oct 17, 2017
+@contact: e.tekinalp@icloud.com
+@package: audioFlashcard/main
+@brief: run a digital vocabulary book
+@requires: PyQt5; pygame; romkan; gtts
+@version: 1.0.0
+"""
+
+__author__ = 'Emre Tekinalp'
+__copyright__ = 'Copyright (C) 2017 Digital Epics'
+__license__ = 'Gravity of Explosion'
+__version__ = '1.0'
+
+# python
 import json
 import os
 import sys
 
-from PySide.QtGui import *
-from PySide.QtCore import *
+# third party modules
+import pygame
 import romkan
 from gtts import gTTS
-from playsound import playsound
 
+# pySide2
+from PyQt5.QtGui import *
+from PyQt5.QtCore import *
+from PyQt5.QtWidgets import *
 from ui_audioFlashcard import Ui_MainWindow
 
 
-class AudioPlayer(QMainWindow, Ui_MainWindow):
+class DigitalVocabulary(QMainWindow, Ui_MainWindow):
+    """Digital Vocabulary UI to play user typed words in english and japanese"""
+
     def __init__(self, parent=None):
-        super(AudioPlayer, self).__init__(parent)
+        """Initialize DigitalVocabulary class.
+
+        :param parent: specifies the parent window of this child UI
+        :type parent: QtWidget
+        """
+        super(DigitalVocabulary, self).__init__(parent)
         self.setupUi(self)
 
         self.__setup_title()
@@ -113,8 +139,8 @@ class VocabPage(QWidget):
         # set headers and rows
         self.tableWidget.setHorizontalHeaderItem(0, english_item)
         self.tableWidget.setHorizontalHeaderItem(1, japanese_item)
-        self.tableWidget.verticalHeader().setResizeMode(QHeaderView.Stretch)
-        self.tableWidget.horizontalHeader().setResizeMode(QHeaderView.Stretch)
+        # self.tableWidget.verticalHeader().setResizeMode(QHeaderView.Stretch)
+        # self.tableWidget.horizontalHeader().setResizeMode(QHeaderView.Stretch)
         self.tableWidget.horizontalHeader().setStretchLastSection(True)
         self.tableWidget.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.tableWidget.setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
@@ -221,16 +247,21 @@ class VocabPage(QWidget):
         return [i for i in self.tableWidget.selectedItems() if i.column()]
 
     def listen_japanese(self):
-        for item in self.get_japanese_items():
+        pygame.mixer.init()
+        for i, item in enumerate(self.get_japanese_items()):
             file_name = '%s.mp3' % romkan.to_roma(item.text().replace(' ', '_'))
             path = os.path.join(self.window().japanese_path(), file_name)
             self.soundfiles.append(path)
             if not os.path.exists(path):
                 tts = gTTS(text=item.text(), lang='ja')
                 tts.save(path)
-            playsound(path)
+            pygame.mixer.music.load(path)
+            pygame.mixer.music.play()
+            while pygame.mixer.music.get_busy():
+                pygame.time.Clock().tick(20000)
 
     def listen_english(self):
+        pygame.mixer.init()
         for item in self.get_english_items():
             file_name = '%s.mp3' % item.text().replace(' ', '_')
             path = os.path.join(self.window().english_path(), file_name)
@@ -238,24 +269,33 @@ class VocabPage(QWidget):
             if not os.path.exists(path):
                 tts = gTTS(text=item.text(), lang='en')
                 tts.save(path)
-            playsound(path)
+            if not os.path.exists(path):
+                return
+            pygame.mixer.music.load(path)
+            pygame.mixer.music.play()
+            while pygame.mixer.music.get_busy():
+                pygame.time.Clock().tick(20000)
 
     def get_english_items(self):
         return [i for i in self.tableWidget.selectedItems() if not i.column()]
 
     def update_config(self, data):
         path = self.window().config_path()
-        result = data.copy()
+        result = dict()
         if os.path.exists(path):
             with open(path) as data_file:
                 result = json.load(data_file)
-            result.update(data)
+        for key, value in result.items():
+            if isinstance(value, dict):
+                value.update(data[key])
+            else:
+                result[key] = data[key]
         with open(path, 'w') as outfile:
-            json.dump(result, outfile)
+            json.dump(result, outfile, indent=4, sort_keys=True)
 
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    window = AudioPlayer()
+    window = DigitalVocabulary()
     window.show()
     sys.exit(app.exec_())
